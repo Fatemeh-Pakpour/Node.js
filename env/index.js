@@ -8,10 +8,13 @@ const {
  PORT: port
 } = process.env;
 const db = mysql.createConnection({
- user:"root",
- password:"1568",
- host:"localhost",
- database:"phonebook"
+    connectionLimit: 10,
+    host,
+    user,
+    password,
+    database,
+    port,
+    multipleStatements: true
 });
 db.connect();
  db.end();
